@@ -7,14 +7,31 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ion-button (click)="vibrate()">
+    Vibrar
+  </ion-button>
+
+  <ion-button (click)="toggleFlashlight()">
+    {{ flashlightOn ? 'Apagar Linterna' : 'Prender Linterna' }}
+  </ion-button>
+
+  <ion-button (click)="recording ? stopRecord() : startRecord()">
+    {{ recording ? 'Detener Grabación' : 'Grabar Audio' }}
+  </ion-button>
+
+  <ion-button (click)="playAudio()">
+    Reproducir Audio
+  </ion-button>
+
+  <ion-button (click)="checkNetworkStatus()">
+    Verificar Conexión
+  </ion-button>
+  <div *ngIf="isConnected">
+    <p>Tienes conexión a Internet.</p>
   </div>
+  <div *ngIf="!isConnected">
+    <p>No tienes conexión a Internet.</p>
+  </div>
+
 </ion-content>
