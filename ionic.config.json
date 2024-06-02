@@ -1,0 +1,7 @@
+{
+  "name": "LabJune1",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
